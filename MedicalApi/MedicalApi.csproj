@@ -13,9 +13,11 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.24.2-preview.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MedicalApi.Database\MedicalApi.Database.csproj" />
     <ProjectReference Include="..\MedicalApi.ServiceDefaults\MedicalApi.ServiceDefaults.csproj" />
   </ItemGroup>
 

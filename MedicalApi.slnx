@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="MedicalApi.AppHost/MedicalApi.AppHost.csproj" />
+  <Project Path="MedicalApi.Database/MedicalApi.Database.csproj" />
+  <Project Path="MedicalApi.Migration/MedicalApi.Migration.csproj" />
   <Project Path="MedicalApi.ServiceDefaults/MedicalApi.ServiceDefaults.csproj" />
   <Project Path="MedicalApi/MedicalApi.csproj" />
-  <Project Path="MigrationService/MigrationService.csproj" />
 </Solution>

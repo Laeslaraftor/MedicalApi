@@ -1,7 +1,17 @@
+using MedicalApi.Database;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.MedicalApi>("medicalapi");
+var sql = builder.AddSqlServer("sql").WithDataVolume();
+var medicalDb = sql.AddDatabase(DbConstants.DatabaseName);
 
-builder.AddProject<Projects.MigrationService>("migrationservice");
+var migrationWorker = builder.AddProject<Projects.MedicalApi_Migration>("medicalapi-migration")
+    .WithReference(medicalDb)
+    .WaitFor(medicalDb);
+
+builder.AddProject<Projects.MedicalApi>("medicalapi")
+    .WithReference(medicalDb)
+    .WaitForCompletion(migrationWorker);
+
 
 builder.Build().Run();

@@ -1,4 +1,4 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.6.4">
+﻿<Project Sdk="Aspire.AppHost.Sdk/13.6.4">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,8 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.SqlServer" Version="13.6.4" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MedicalApi.Migration\MedicalApi.Migration.csproj" />
     <ProjectReference Include="..\MedicalApi\MedicalApi.csproj" />
-    <ProjectReference Include="..\MigrationService\MigrationService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\MedicalApi.Database\DbConstants.cs" Link="DbConstants.cs" />
   </ItemGroup>
 
 </Project>

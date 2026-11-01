@@ -13,5 +13,4 @@ builder.AddProject<Projects.MedicalApi>("medicalapi")
     .WithReference(medicalDb)
     .WaitForCompletion(migrationWorker);
 
-
 builder.Build().Run();

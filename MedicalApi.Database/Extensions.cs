@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using MedicalApi.Database.Tables;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace MedicalApi.Database;
 

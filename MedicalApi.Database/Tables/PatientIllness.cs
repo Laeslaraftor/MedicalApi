@@ -10,4 +10,5 @@ public class PatientIllness
     public int DiseaseId { get; set; }
     public Illness Disease { get; set; } = null!;
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+    public string? Description { get; set; }
 }

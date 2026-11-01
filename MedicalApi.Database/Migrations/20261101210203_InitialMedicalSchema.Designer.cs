@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalApi.Database.Migrations
 {
     [DbContext(typeof(MedicalDbContext))]
-    [Migration("20261101204127_InitialMedicalSchema")]
+    [Migration("20261101210203_InitialMedicalSchema")]
     partial class InitialMedicalSchema
     {
         /// <inheritdoc />
@@ -34,6 +34,10 @@ namespace MedicalApi.Database.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Specialty")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -102,6 +106,9 @@ namespace MedicalApi.Database.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DiseaseId")
                         .HasColumnType("int");

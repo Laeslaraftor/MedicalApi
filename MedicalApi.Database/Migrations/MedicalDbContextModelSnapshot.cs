@@ -107,10 +107,10 @@ namespace MedicalApi.Database.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DiseaseId")
+                    b.Property<int>("DoctorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DoctorId")
+                    b.Property<int>("IllnessId")
                         .HasColumnType("int");
 
                     b.Property<int>("PatientId")
@@ -118,9 +118,9 @@ namespace MedicalApi.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DiseaseId");
-
                     b.HasIndex("DoctorId");
+
+                    b.HasIndex("IllnessId");
 
                     b.HasIndex("PatientId");
 
@@ -129,15 +129,15 @@ namespace MedicalApi.Database.Migrations
 
             modelBuilder.Entity("MedicalApi.Database.Tables.PatientIllness", b =>
                 {
-                    b.HasOne("MedicalApi.Database.Tables.Illness", "Disease")
-                        .WithMany("PatientDiagnoses")
-                        .HasForeignKey("DiseaseId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("MedicalApi.Database.Tables.Doctor", "Doctor")
                         .WithMany("Diagnoses")
                         .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MedicalApi.Database.Tables.Illness", "Illness")
+                        .WithMany("PatientDiagnoses")
+                        .HasForeignKey("IllnessId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -147,9 +147,9 @@ namespace MedicalApi.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Disease");
-
                     b.Navigation("Doctor");
+
+                    b.Navigation("Illness");
 
                     b.Navigation("Patient");
                 });

@@ -7,8 +7,8 @@ public class PatientIllness
     public Patient Patient { get; set; } = null!;
     public int DoctorId { get; set; }
     public Doctor Doctor { get; set; } = null!;
-    public int DiseaseId { get; set; }
-    public Illness Disease { get; set; } = null!;
+    public int IllnessId { get; set; }
+    public Illness Illness { get; set; } = null!;
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public string? Description { get; set; }
 }
